@@ -148,12 +148,14 @@
     <Compile Include="CastleWindsor\AutomappingConfiguration.cs" />
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AuthenticatorsController.cs" />
+    <Compile Include="Controllers\Default1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RouteRegistrar.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthenticatorDTO.cs" />
+    <Compile Include="RemAuthMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\img\sharp_arch.jpg" />
@@ -186,10 +188,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="NHibernate.config" />
+    <Content Include="NHibernate.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\Queries\" />
+    <Folder Include="Controllers\Services\" />
     <Folder Include="Controllers\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Authenticators\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

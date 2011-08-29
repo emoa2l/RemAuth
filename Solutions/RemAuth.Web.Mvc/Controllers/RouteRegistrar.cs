@@ -11,9 +11,14 @@
             routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
             routes.MapRoute(
+               "Service_AthenticatorList", // Route name
+               "client/services/{controller}/{action}", // URL with parameters
+               new { controller = "Authenticators", action = "Service_List" } // Parameter defaults
+           );
+            routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }); // Parameter defaults
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }); // Parameter defaults           
         }
     }
 }

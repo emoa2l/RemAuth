@@ -12,7 +12,7 @@ using System.IO;
 using System.Runtime.Serialization;
 
 namespace RemAuth.Web.Mvc.Controllers
-{
+{    
     public class AuthenticatorsController : Controller
     {
 
@@ -38,6 +38,7 @@ namespace RemAuth.Web.Mvc.Controllers
        }
 
        [HttpGet]
+       [Authorize]
        public ActionResult Create()
        {
           return View();
@@ -45,6 +46,7 @@ namespace RemAuth.Web.Mvc.Controllers
 
        [Transaction]
        //[ValidateAntiForgeryToken]
+       [Authorize]
        [HttpPost]
        public ActionResult Create(Authenticator authenticator)
        {
@@ -63,6 +65,7 @@ namespace RemAuth.Web.Mvc.Controllers
        /// <param name="id"></param>
        /// <returns></returns>
        [HttpGet]
+       [Authorize]
        public ActionResult Update(int? id)
        {
           if (!id.HasValue)
@@ -83,6 +86,7 @@ namespace RemAuth.Web.Mvc.Controllers
        [Transaction]
        [ValidateAntiForgeryToken]
        [HttpPost]
+       [Authorize]
        public ActionResult Update(Authenticator authenticator)
        {
           if (ModelState.IsValid && authenticator.IsValid())

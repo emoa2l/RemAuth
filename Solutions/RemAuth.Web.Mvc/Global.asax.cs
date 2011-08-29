@@ -76,8 +76,7 @@
             this.InitializeServiceLocator();
 
             AreaRegistration.RegisterAllAreas();
-            RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);
-            RegisterRoutes(RouteTable.Routes);
+            RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);            
         }
 
         /// <summary>
@@ -107,17 +106,6 @@
                 new AutoPersistenceModelGenerator().Generate(),
                 Server.MapPath("~/NHibernate.config"));
         }
-
-        public static void RegisterRoutes(RouteCollection routes)
-        {
-           routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-           routes.MapRoute(
-               "Service_AthenticatorList", // Route name
-               "{controller}/{action}", // URL with parameters
-               new { controller = "Authenticators", action = "Service_List" } // Parameter defaults
-           );
-
-        }
+       
     }
 }
